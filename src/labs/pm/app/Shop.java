@@ -34,7 +34,7 @@ public class Shop {
         p.setName("Tea");
         p.setPrice(BigDecimal.valueOf(1.99));
         
-        System.out.println(p.getId() + " " + p.getName() + " " + p.getPrice());
+        System.out.println(p.getId() + " " + p.getName() + " " + p.getPrice() + " " + p.getDiscount());
     }
     
 }
