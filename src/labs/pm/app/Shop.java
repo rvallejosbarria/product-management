@@ -20,7 +20,9 @@ import java.math.BigDecimal;
 import labs.pm.data.Product;
 
 /**
+ * {@code Shop} class represents an application that manages Products
  *
+ * @version 4.0
  * @author robertov
  */
 public class Shop {
@@ -33,8 +35,8 @@ public class Shop {
         p.setId(101);
         p.setName("Tea");
         p.setPrice(BigDecimal.valueOf(1.99));
-        
+
         System.out.println(p.getId() + " " + p.getName() + " " + p.getPrice() + " " + p.getDiscount());
     }
-    
+
 }
