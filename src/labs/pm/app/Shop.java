@@ -18,6 +18,7 @@ package labs.pm.app;
 
 import java.math.BigDecimal;
 import labs.pm.data.Product;
+import static labs.pm.data.Rating.*;
 
 /**
  * {@code Shop} class represents an application that manages Products
@@ -31,12 +32,15 @@ public class Shop {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Product p = new Product();
-        p.setId(101);
-        p.setName("Tea");
-        p.setPrice(BigDecimal.valueOf(1.99));
+        Product p1 = new Product(101, "Tea", BigDecimal.valueOf(1.99));
+        Product p2 = new Product(102, "Coffee", BigDecimal.valueOf(1.99), FOUR_STAR);
+        Product p3 = new Product(103, "Cake", BigDecimal.valueOf(3.99), FIVE_STAR);
+        Product p4 = new Product();
 
-        System.out.println(p.getId() + " " + p.getName() + " " + p.getPrice() + " " + p.getDiscount());
+        System.out.println(p1.getId() + " " + p1.getName() + " " + p1.getPrice() + " " + p1.getDiscount() + " " + p1.getRating().getStarts());
+        System.out.println(p2.getId() + " " + p2.getName() + " " + p2.getPrice() + " " + p2.getDiscount() + " " + p2.getRating().getStarts());
+        System.out.println(p3.getId() + " " + p3.getName() + " " + p3.getPrice() + " " + p3.getDiscount() + " " + p3.getRating().getStarts());
+        System.out.println(p4.getId() + " " + p4.getName() + " " + p4.getPrice() + " " + p4.getDiscount() + " " + p4.getRating().getStarts());
     }
 
 }
