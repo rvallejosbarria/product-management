@@ -18,6 +18,8 @@ package labs.pm.data;
 
 import java.math.BigDecimal;
 import static java.math.RoundingMode.*;
+import java.time.LocalDate;
+import java.util.Objects;
 import static labs.pm.data.Rating.*;
 
 /**
@@ -32,7 +34,7 @@ import static labs.pm.data.Rating.*;
  * @version 4.0
  * @author robertov
  */
-public class Product {
+public abstract class Product {
 
     /**
      * A constant that defines a {@link java.math.BigDecimal BigDecimal} value
@@ -88,8 +90,40 @@ public class Product {
         return rating;
     }
 
-    public Product applyRating(Rating newRating) {
-        return new Product(id, name, price, newRating);
+    public abstract Product applyRating(Rating newRating);
+
+    /**
+     * Get the value of the best before date for the product
+     *
+     * @return the value of bestBefore
+     */
+    public LocalDate getBestBefore() {
+        return LocalDate.now();
+    }
+
+    @Override
+    public String toString() {
+        return id + ", " + name + ", " + price + ", " + getDiscount() + ", " + rating.getStarts() + ", " + getBestBefore();
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + this.id;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        // if (obj != null && getClass() == obj.getClass()) {
+        if (obj instanceof Product) {
+            final Product other = (Product) obj;
+            return this.id == other.id && Objects.equals(this.name, other.name);
+        }
+        return false;
     }
 
 }
